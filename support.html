@@ -87,6 +87,9 @@ footer a{color:var(--ink3)}
 </ul>
 <h3>我忘了访问密码怎么办？</h3>
 <p>用<strong>面容 ID</strong> 就能回到真实数据（见上）。密码以「随机盐 + SHA-256」存在设备 Keychain 里，我们不存明文，<strong>无法帮你找回</strong>。</p>
+<p><strong>私密相册例外</strong>：里面的照片是用访问密码锁住的，忘了密码就<strong>永远打不开，任何人都没办法</strong>。如果你在某台设备上已经用面容 ID 打开过私密相册，那台设备还能继续刷脸打开，可以趁早把需要的照片存出来。</p>
+<h3>私密相册是什么？</h3>
+<p>设置 → <strong>私密相册</strong>。放进去的照片会先在你的设备上加密，再保存、经你自己的 iCloud 同步到你的其它设备；不会出现在系统相册和时间轴里。用访问密码解锁（同一个密码），在一台设备上输过一次后，那台设备可以刷脸打开。切到别的 App 就自动锁上。加入后原图仍在系统相册里，需要的话请自己去「照片」删除，再清空「最近删除」。</p>
 <h3>假记录会同步到 iCloud 吗？</h3>
 <p>不会。伪装数据只在本机，运行时用内存数据库，关闭 App 即清空。</p>
 <h3>位置为什么没自动记录？</h3>
@@ -117,6 +120,9 @@ footer a{color:var(--ink3)}
 </ul>
 <h3>I forgot my passcode.</h3>
 <p>Use <strong>Face ID</strong> to return to your real data (see above). The passcode is stored as a random salt + SHA-256 hash in the device Keychain; we never store it in plain text and <strong>cannot recover it</strong>.</p>
+<p><strong>The Private Album is the exception</strong>: its photos are locked with your passcode, so if you forget it they <strong>can never be opened, by anyone</strong>. If you've already opened the Private Album with Face ID on a device, that device can still open it with Face ID, so save any photos you need from there.</p>
+<h3>What is the Private Album?</h3>
+<p>Settings → <strong>Private Album</strong>. Photos you add are encrypted on your device before they're saved and synced to your other devices through your own iCloud; they never appear in Photos or your timeline. Unlock it with your access passcode (the same one); after you enter it once on a device, that device can use Face ID. It locks when you switch to another app. The originals stay in Photos after you add them, so delete them there and empty "Recently Deleted" if you want.</p>
 <h3>Do the fake entries sync to iCloud?</h3>
 <p>No. Decoy data stays on-device, lives in an in-memory database at runtime, and is cleared when the app closes.</p>
 <h3>Why isn't my location being recorded?</h3>
