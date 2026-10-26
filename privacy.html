@@ -67,7 +67,7 @@ footer a{color:var(--ink3)}
   </nav>
 </header>
 <h1>Tracejar 隐私政策 / Privacy Policy</h1>
-<p><span class="eff">生效日期 / Effective date：2026-07-14；更新 / Updated：2026-10-26（私密相册独立密码与 Face ID 开关 / separate Private Album security）</span></p>
+<p><span class="eff">生效日期 / Effective date：2026-07-14；更新 / Updated：2026-10-26（私密相册独立密码与生物识别开关 / separate Private Album security）</span></p>
 <hr>
 <h2>中文</h2>
 <h3>1. 一句话总结</h3>
@@ -91,7 +91,7 @@ footer a{color:var(--ink3)}
 <tr><td><strong>相册</strong></td><td>你主动选择照片/视频时</td><td>仅读取你选中的项目</td></tr>
 <tr><td><strong>麦克风</strong></td><td>你主动录制语音时</td><td>录音存进你的记录</td></tr>
 <tr><td><strong>位置</strong></td><td><strong>默认关闭</strong></td><td>只有你在「设置 → 自动定位」里主动开启后，新建记录才会标记当前位置</td></tr>
-<tr><td><strong>面容 ID</strong></td><td>你开启 App 锁，或在相册设置里开启「允许用面容 ID 解锁」时</td><td>由 iOS 的 LocalAuthentication 处理，App 只收到「成功/失败」，<strong>永远接触不到你的生物特征数据</strong></td></tr>
+<tr><td><strong>面容 ID / 触控 ID</strong></td><td>你开启 App 锁，或在相册设置里开启生物识别解锁时（设备支持哪个就显示哪个）</td><td>由 iOS 的 LocalAuthentication 处理，App 只收到「成功/失败」，<strong>永远接触不到你的生物特征数据</strong></td></tr>
 </tbody></table>
 <h3>6. 应用锁、伪装模式与私密相册（可选）</h3>
 
@@ -99,7 +99,7 @@ footer a{color:var(--ink3)}
 <li><strong>App 锁密码</strong>从不以明文存储或以明文离开设备。每台设备在 Keychain 里存「随机盐 + SHA-256 哈希」；同 Apple ID 的设备会经 iCloud 钥匙串同步一个只包含随机校验标记的加密信封，用来验证同一个 App 锁密码。它不包含日记内容或照片钥匙。</li>
 <li><strong>私密相册使用独立密码</strong>。你放进去的照片会<strong>先在设备上加密</strong>（AES-GCM，CryptoKit），加密用的随机主钥匙再由<strong>相册密码</strong>推导出的钥匙锁住（PBKDF2-HMAC-SHA256，60 万轮）。只有被锁住的主钥匙信封会进入私人 iCloud 数据库和 iCloud 钥匙串；App 锁密码不能打开相册，相册密码也不能解锁整个 App。<strong>忘记相册密码，照片将永久无法打开，没有任何找回办法。</strong></li>
 <li>私密相册里每张照片的<strong>像素尺寸、加入时间</strong>以未加密形式和密文一起保存，用于排列网格；照片内容及其原始元数据（EXIF、GPS 等）都在密文里。</li>
-<li>私密相册的 Face ID 有独立开关。开启并输入过一次相册密码后，可以在<strong>这台设备</strong>上用面容 ID 打开相册：主钥匙被保存在本机 Keychain、受当前面容保护（<code>WhenPasscodeSetThisDeviceOnly</code> + <code>biometryCurrentSet</code>），不会同步；关闭开关会立即删除这份生物识别缓存。</li>
+<li>私密相册的生物识别（Face ID 或 Touch ID，依设备而定）有独立开关。开启并输入过一次相册密码后，可以在<strong>这台设备</strong>上用当前生物识别打开相册：主钥匙被保存在本机 Keychain、受当前生物识别保护（<code>WhenPasscodeSetThisDeviceOnly</code> + <code>biometryCurrentSet</code>），不会同步；关闭开关会立即删除这份生物识别缓存。</li>
 <li>为防止同一 Apple ID 下的新设备装上 Tracejar 就能直接看日记，「已开启 App 锁」这一标记会经 iCloud 钥匙串同步；新设备第一次打开时需要输入 <strong>App 锁密码</strong>，而不是相册密码。</li>
 <li><strong>伪装（Decoy）模式</strong>中显示的假记录，是<strong>你自己写的</strong>，只存在本机；运行时使用内存数据库，<strong>永不同步到 iCloud</strong>，关闭 App 即清空。</li>
 <li>该功能仅用于保护你设备上的本地隐私（例如防止他人随手翻看时看到敏感内容），<strong>不用于规避任何法律义务</strong>。</li>
@@ -137,7 +137,7 @@ footer a{color:var(--ink3)}
 <tr><td><strong>Photo Library</strong></td><td>Only when you pick a photo/video</td><td>We read only the items you select</td></tr>
 <tr><td><strong>Microphone</strong></td><td>Only when you record a voice note</td><td>Saved into your entry</td></tr>
 <tr><td><strong>Location</strong></td><td><strong>Off by default</strong></td><td>Only if you turn on Settings → "Attach location to new entries" will new entries be tagged with your location</td></tr>
-<tr><td><strong>Face ID</strong></td><td>Only if you enable App Lock, or enable Face ID for the Private Album in album settings</td><td>Handled by iOS LocalAuthentication; the app receives only success/failure and <strong>never sees your biometric data</strong></td></tr>
+<tr><td><strong>Face ID / Touch ID</strong></td><td>Only if you enable App Lock, or enable biometric unlock for the Private Album in album settings; the app shows the type supported by the device</td><td>Handled by iOS LocalAuthentication; the app receives only success/failure and <strong>never sees your biometric data</strong></td></tr>
 </tbody></table>
 <h3>6. App Lock, Decoy Mode &amp; Private Album (optional)</h3>
 
@@ -145,7 +145,7 @@ footer a{color:var(--ink3)}
 <li><strong>Your App Lock passcode is never stored or sent in readable form.</strong> Each device keeps a <strong>random salt + SHA-256 hash</strong> in its Keychain. Devices signed in to the same Apple ID may receive an encrypted verification envelope through iCloud Keychain; it contains only a random verification key, never journal content or the album key.</li>
 <li><strong>The Private Album has a separate passcode.</strong> Photos you add are <strong>encrypted on your device</strong> (AES-GCM, CryptoKit). Their random master key is locked with <strong>a key derived from the album passcode</strong> (PBKDF2-HMAC-SHA256, 600,000 rounds). Only the locked master-key envelope enters your private iCloud database and iCloud Keychain. The App Lock passcode cannot open the album, and the album passcode cannot unlock the whole app. <strong>If you forget the album passcode, the photos can never be opened again. There is no recovery.</strong></li>
 <li>For each Private Album photo, its <strong>pixel dimensions and the time it was added</strong> are stored unencrypted alongside the encrypted data so the grid can be laid out. The photo itself and its original metadata (EXIF, GPS, etc.) are inside the encrypted data.</li>
-<li>The Private Album has its own Face ID switch. After you enter the album passcode once, you can open it with Face ID <strong>on that device</strong> when the switch is on: the unlocked key is kept in that device's Keychain, protected by Face ID (<code>WhenPasscodeSetThisDeviceOnly</code> + the currently enrolled face), and is never synced. Turning the switch off immediately removes that biometric copy.</li>
+<li>The Private Album has its own biometric switch, labeled Face ID or Touch ID according to the device. After you enter the album passcode once, you can open it with biometrics <strong>on that device</strong> when the switch is on: the unlocked key is kept in that device's Keychain, protected by the current biometric enrollment (<code>WhenPasscodeSetThisDeviceOnly</code> + <code>biometryCurrentSet</code>), and is never synced. Turning the switch off immediately removes that biometric copy.</li>
 <li>So that a new device signed in to your Apple ID can't simply open your journal, an "App Lock is on" flag is synced through iCloud Keychain; a new device asks for your <strong>App Lock passcode</strong> the first time it opens.</li>
 <li>The fake entries shown in <strong>Decoy Mode</strong> are <strong>written by you</strong>, kept on-device only, held in an in-memory database at runtime, and are <strong>never synced to iCloud</strong>.</li>
 <li>This feature exists solely to protect your local privacy (e.g., so a person glancing at your phone doesn't see sensitive content). <strong>It is not intended to evade any legal obligation.</strong></li>
