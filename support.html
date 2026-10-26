@@ -89,7 +89,7 @@ footer a{color:var(--ink3)}
 <p>用设备支持的 <strong>Face ID / Touch ID</strong> 就能回到真实数据（见上）。密码以「随机盐 + SHA-256」存在设备 Keychain 里，我们不存明文，<strong>无法帮你找回</strong>。</p>
 <p><strong>私密相册使用另一组密码</strong>：忘了相册密码就<strong>永远打不开，任何人都没办法</strong>。如果你在某台设备上已经开启相册生物识别并打开过相册，那台设备还能继续通过本机生物识别打开，可以趁早把需要的照片存出来。</p>
 <h3>私密相册是什么？</h3>
-<p>设置 → <strong>私密相册</strong>。第一次进入时单独设置相册密码；放进去的照片会先在设备上加密，再保存、经你自己的 iCloud 同步到其它设备，不会出现在系统相册和时间轴里。相册右上角齿轮里可以修改相册密码，并单独选择是否允许本机生物识别（Face ID / Touch ID）解锁。修改 App 锁密码不会改变相册密码，反过来也一样。切到别的 App 就自动锁上。加入后原图仍在系统相册里，需要的话请自己去「照片」删除，再清空「最近删除」。</p>
+<p>设置 → <strong>私密相册</strong>。第一次进入时单独设置相册密码；放进去的照片会先在设备上加密，再保存、经你自己的 iCloud 同步到其它设备，不会出现在时间轴里。加密保存成功后，App 会请求 iOS 删除本次选中的系统相册原图；iOS 会让你确认，删除的图片会在「最近删除」里保留 30 天。若没有授予完整相册权限，原图会保留。相册右上角齿轮里可以修改相册密码，并单独选择是否允许本机生物识别（Face ID / Touch ID）解锁。修改 App 锁密码不会改变相册密码，反过来也一样。切到别的 App 就自动锁上。</p>
 <h3>假记录会同步到 iCloud 吗？</h3>
 <p>不会。伪装数据只在本机，运行时用内存数据库，关闭 App 即清空。</p>
 <h3>位置为什么没自动记录？</h3>
@@ -122,7 +122,7 @@ footer a{color:var(--ink3)}
 <p>Use the <strong>Face ID or Touch ID</strong> available on your device to return to your real data (see above). The App Lock passcode is stored as a random salt + SHA-256 hash in the device Keychain; we never store it in plain text and <strong>cannot recover it</strong>. The Private Album uses a different passcode.</p>
 <p><strong>The Private Album uses a separate passcode</strong>: if you forget it its photos <strong>can never be opened by anyone</strong>. If you've enabled album biometrics and opened the Private Album on a device, that device can still use its biometric unlock, so save any photos you need from there.</p>
 <h3>What is the Private Album?</h3>
-<p>Settings → <strong>Private Album</strong>. The first time, set a separate album passcode. Photos you add are encrypted on your device before they're saved and synced to your other devices through your own iCloud; they never appear in Photos or your timeline. Open the gear in the album to change its passcode and independently choose whether Face ID or Touch ID can unlock it on this device. Changing either the album passcode or the App Lock passcode does not change the other. It locks when you switch to another app. If you forget the album passcode, its photos <strong>can never be opened by anyone</strong>. The originals stay in Photos after you add them, so delete them there and empty "Recently Deleted" if you want.</p>
+<p>Settings → <strong>Private Album</strong>. The first time, set a separate album passcode. Photos you add are encrypted on your device before they're saved and synced through your own iCloud; they never appear on your timeline. After encrypted storage succeeds, Tracejar asks iOS to remove the selected originals from Photos. iOS asks you to confirm, and deleted images remain in Recently Deleted for 30 days. If full Photos access is unavailable, the originals stay. Open the gear in the album to change its passcode and independently choose whether Face ID or Touch ID can unlock it on this device. Changing either the album passcode or the App Lock passcode does not change the other. It locks when you switch to another app. If you forget the album passcode, its photos <strong>can never be opened by anyone</strong>.</p>
 <h3>Do the fake entries sync to iCloud?</h3>
 <p>No. Decoy data stays on-device, lives in an in-memory database at runtime, and is cleared when the app closes.</p>
 <h3>Why isn't my location being recorded?</h3>
