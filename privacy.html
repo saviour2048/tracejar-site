@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Privacy Policy · Tracejar</title>
-<meta name="description" content="Tracejar — a private journal that's yours alone. No servers, no analytics, no ads.">
+<meta name="description" content="Tracejar — a private journal that's yours alone. No developer servers, no analytics, no ads.">
 <style>
 :root{--bg:#F2EFE9;--card:#FBF9F5;--ink:#20211F;--ink2:#54524D;--ink3:#8A867E;
       --line:#E2DCD1;--accent:#C8622C;--green:#2E9E7B}
@@ -67,11 +67,11 @@ footer a{color:var(--ink3)}
   </nav>
 </header>
 <h1>Tracejar 隐私政策 / Privacy Policy</h1>
-<p><span class="eff">生效日期 / Effective date：2026-07-14；更新 / Updated：2026-10-26（私密相册独立密码与生物识别开关 / separate Private Album security）</span></p>
+<p><span class="eff">生效日期 / Effective date：2026-07-14；更新 / Updated：2026-11-02（可选的本机 AI 用量 / optional on-device AI usage）</span></p>
 <hr>
 <h2>中文</h2>
 <h3>1. 一句话总结</h3>
-<p><strong>Tracejar 没有服务器。</strong> 你的记录只存在你的设备上，以及（当你开启 iCloud 同步时）你自己的私人 iCloud 里。开发者<strong>无法访问</strong>你的任何内容。我们不收集、不分析、不出售你的数据，也没有任何广告或第三方 SDK。</p>
+<p><strong>Tracejar 没有开发者运营的服务器。</strong> 你的记录只存在你的设备上，以及（当你开启 iCloud 同步时）你自己的私人 iCloud 里。开发者<strong>无法访问</strong>你的任何内容。我们不收集、不分析、不出售你的数据，也没有任何广告或第三方 SDK。若你主动开启可选的本机 AI 用量功能，你的手机会直接连接 Kimi 和 DeepSeek 的官方接口；Tracejar 不代理、不接收这些请求。</p>
 <h3>2. 我们是谁</h3>
 <p>Tracejar 由 Tongwei Zhang 独立开发。联系方式：zhangtongwei@gmail.com</p>
 <h3>3. 我们不收集什么</h3>
@@ -105,20 +105,31 @@ footer a{color:var(--ink3)}
 <li><strong>伪装（Decoy）模式</strong>中显示的假记录，是<strong>你自己写的</strong>，只存在本机；运行时使用内存数据库，<strong>永不同步到 iCloud</strong>，关闭 App 即清空。</li>
 <li>该功能仅用于保护你设备上的本地隐私（例如防止他人随手翻看时看到敏感内容），<strong>不用于规避任何法律义务</strong>。</li>
 </ul>
-<h3>7. 照片元数据</h3>
+<h3>7. 可选的本机 AI 用量</h3>
+<p>「Kimi / DeepSeek AI 用量」是<strong>默认关闭</strong>的可选工具，不影响日记和私密相册。Tracejar 不创建任何账户，也不要求 Tracejar 开发者账户。</p>
+<ul>
+<li>只有你主动开启并填写自己的凭据后，Tracejar 才会使用它们。你需要提供 Kimi Code API Key、DeepSeek API Key（用于余额）和 DeepSeek 控制台 <code>userToken</code>（用于今日和近 30 天消耗）。</li>
+<li>这些凭据只保存在当前设备的 Keychain，只有设备解锁后可读，标记为仅本机、不同步，也不会迁移到另一台设备。它们不进入 iCloud 钥匙串、CloudKit、日记数据库、UserDefaults 或开发者服务器。</li>
+<li>你的手机只直接连接 <code>api.kimi.com</code>、<code>api.deepseek.com</code> 和 <code>platform.deepseek.com</code>。这些服务如何处理请求适用其各自的隐私政策；Tracejar 不代理这些请求。</li>
+<li>本地缓存仅包含额度百分比、余额、今日与近 30 天金额、Token 数量、重置时间和更新时间；不保存账户名、完整接口响应或请求正文。缓存与凭据一样保存在设备专属、仅解锁后可读的 Keychain。</li>
+<li>主屏幕组件只在 iOS 安排的时间刷新。主屏幕解锁后，能看到屏幕的人也能看到组件数字；锁屏和其他受保护的系统界面可能按 iOS 隐私规则遮挡这些内容。</li>
+<li>关闭该功能会立即删除本机 Keychain 中的三个凭据和用量缓存，并停止组件联网。</li>
+<li>Kimi 与 DeepSeek 的凭据彼此独立。Tracejar 不会用你的凭据调用对话、生成或其他计费接口，只调用上述用量与余额查询接口。</li>
+</ul>
+<h3>8. 照片元数据</h3>
 <p>从相册导入的照片/视频按原样保存，<strong>可能保留其原始元数据（如 EXIF、拍摄时间、GPS 坐标）</strong>。这些数据同样只留在你的设备与你的私人 iCloud 中，不会发送给我们或任何第三方。</p>
-<h3>8. 导出</h3>
+<h3>9. 导出</h3>
 <p>「导出 CSV」由你主动触发，文件在本机临时生成，通过系统分享面板由<strong>你自己决定</strong>发送到哪里。导出不包含照片/视频/语音的二进制内容（仅记数量）。</p>
-<h3>9. 你的权利</h3>
+<h3>10. 你的权利</h3>
 <p>你可以随时在 App 内查看、编辑、删除任何记录；随时关闭 iCloud 同步；删除 App 即删除本机数据；在 iCloud 设置中可删除 iCloud 副本。由于我们不持有服务器端数据，这些操作全部由你直接完成，无需向我们申请。</p>
-<h3>10. 儿童</h3>
+<h3>11. 儿童</h3>
 <p>Tracejar 不面向 13 岁以下儿童，也不会有意收集其信息。</p>
-<h3>11. 变更与联系</h3>
+<h3>12. 变更与联系</h3>
 <p>本政策如有更新，我们会修改本页面的生效日期。有任何问题请联系：zhangtongwei@gmail.com</p>
 <hr>
 <h2>English</h2>
 <h3>1. In one sentence</h3>
-<p><strong>Tracejar has no servers.</strong> Your entries live only on your device and — if you turn on iCloud Sync — in your own private iCloud. The developer <strong>cannot access</strong> any of your content. We do not collect, analyze, or sell your data. There are no ads and no third-party SDKs.</p>
+<p><strong>Tracejar has no developer-operated servers.</strong> Your entries live only on your device and — if you turn on iCloud Sync — in your own private iCloud. The developer <strong>cannot access</strong> any of your content. We do not collect, analyze, or sell your data. There are no ads and no third-party SDKs. If you explicitly enable the optional on-device AI usage feature, your iPhone connects directly to the official Kimi and DeepSeek endpoints; Tracejar does not proxy or receive those requests.</p>
 <h3>2. Who we are</h3>
 <p>Tracejar is developed independently by Tongwei Zhang. Contact: zhangtongwei@gmail.com</p>
 <h3>3. What we do NOT collect</h3>
@@ -152,19 +163,30 @@ footer a{color:var(--ink3)}
 <li>The fake entries shown in <strong>Decoy Mode</strong> are <strong>written by you</strong>, kept on-device only, held in an in-memory database at runtime, and are <strong>never synced to iCloud</strong>.</li>
 <li>This feature exists solely to protect your local privacy (e.g., so a person glancing at your phone doesn't see sensitive content). <strong>It is not intended to evade any legal obligation.</strong></li>
 </ul>
-<h3>7. Photo metadata</h3>
+<h3>7. Optional on-device AI usage</h3>
+<p>The Kimi / DeepSeek AI usage tool is <strong>off by default</strong> and does not affect journal or Private Album data. Tracejar creates no account and requires no developer-operated Tracejar account.</p>
+<ul>
+<li>Tracejar uses credentials only after you explicitly enable the feature and enter your own Kimi Code API key, DeepSeek API key for balance, and DeepSeek console <code>userToken</code> for today's and 30-day usage.</li>
+<li>Credentials stay in a <strong>device-only</strong> Keychain access group, readable only while the device is unlocked. They are not synced or migrated to another device and never enter iCloud Keychain, CloudKit, the journal database, UserDefaults or a developer server.</li>
+<li>Your iPhone connects only to <code>api.kimi.com</code>, <code>api.deepseek.com</code> and <code>platform.deepseek.com</code>. Those providers handle requests under their own privacy policies; Tracejar does not proxy the requests.</li>
+<li>The local cache contains only quota percentages, balances, today's and 30-day costs, token counts, reset times and update times. It does not store account names, full provider responses or request bodies. The cache uses the same device-only, unlock-protected Keychain storage as the credentials.</li>
+<li>Home Screen widgets refresh when iOS schedules them. After the Home Screen is unlocked, anyone who can see the screen can see the widget values; the Lock Screen and other protected system surfaces may redact them under iOS privacy rules.</li>
+<li>Turning the feature off immediately deletes all three credentials and the usage cache from the local Keychain, then stops widget network access.</li>
+<li>Kimi and DeepSeek credentials are independent. Tracejar does not use them for chat, generation or other billable requests; it calls only the usage and balance endpoints described above.</li>
+</ul>
+<h3>8. Photo metadata</h3>
 <p>Photos and videos imported from your library are stored as-is and <strong>may retain their original metadata (EXIF, capture time, GPS)</strong>. That metadata likewise stays on your device and in your private iCloud, and is never sent to us or any third party.</p>
-<h3>8. Export</h3>
+<h3>9. Export</h3>
 <p>"Export as CSV" is user-initiated. The file is generated temporarily on-device and shared wherever <strong>you</strong> choose via the system share sheet. Photos/videos/audio binaries are not included (only counts).</p>
-<h3>9. Your rights</h3>
+<h3>10. Your rights</h3>
 <p>You can view, edit, and delete any entry at any time in the app; turn off iCloud Sync at any time; delete the app to remove local data; and delete the iCloud copy from iCloud settings. Because we hold no server-side data, you perform all of this directly — no request to us is needed.</p>
-<h3>10. Children</h3>
+<h3>11. Children</h3>
 <p>Tracejar is not directed at children under 13 and does not knowingly collect their information.</p>
-<h3>11. Changes &amp; contact</h3>
+<h3>12. Changes &amp; contact</h3>
 <p>If this policy changes we will update the effective date on this page. Questions: zhangtongwei@gmail.com</p>
 <footer>
   © 2026 Tongwei Zhang · <a href="mailto:zhangtongwei@gmail.com">zhangtongwei@gmail.com</a><br>
-  Tracejar has no servers. Your entries stay on your device and your private iCloud.
+  Tracejar has no developer-operated servers. Your entries stay on your device and your private iCloud.
 </footer>
 </div>
 </body>
